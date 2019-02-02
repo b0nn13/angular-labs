@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { typeWithParameters } from '@angular/compiler/src/render3/util';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works !';
+
+  valor: number = 5;
+  destruirCiclo: boolean;
+
+  mudarValor() {
+    this.valor++;
+  }
+
+  destruiCiclo(){
+    this.destruirCiclo = !this.destruirCiclo;
+  }
 }
