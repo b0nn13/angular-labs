@@ -11,3 +11,16 @@
 <p [highlight]="'red'" [defaultColor]="'gray'" >
   Texto com highlight muito loko
 </p>
+
+
+<br><br>
+
+<br>
+<div *ngIf="mostrarCursos">
+  Lista de cursos aqui
+</div>
+<div *ngElse="mostrarCursos">
+  Não existem cursos para serem listados
+</div>
+
+<button class="btn btn-primary" (click)="onMostrarCurso()">Mostrar ou esconder cursos</button>
