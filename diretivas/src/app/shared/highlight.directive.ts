@@ -16,7 +16,7 @@ export class HighlightDirective implements OnInit {
   @HostBinding('style.backgroundColor') backgroundColor: string;
 
   @Input() defaultColor: string = 'white';
-  @Input() highlightColor: string = 'yellow';
+  @Input('highlight') highlightColor: string = 'yellow';
 
   constructor() { 
 
