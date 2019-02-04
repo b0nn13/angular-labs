@@ -1,4 +1,4 @@
-import { Directive, HostListener, ElementRef, Renderer } from '@angular/core';
+import { Directive, HostListener, ElementRef, Renderer, HostBinding } from '@angular/core';
 
 @Directive({
   selector: '[highlightMouse]'
@@ -6,19 +6,31 @@ import { Directive, HostListener, ElementRef, Renderer } from '@angular/core';
 export class HighlightMouseDirective {
 
   @HostListener('mouseenter') onmouseOver() {
-    this._renderer.setElementStyle(
-      this._elementRef.nativeElement,
-      'background-color', 'yellow'  
-    );
+    // this._renderer.setElementStyle(
+    //   this._elementRef.nativeElement,
+    //   'background-color', 'yellow'  
+    // );
+    this.backgroundColor = 'yellow';
   }
 
   @HostListener('mouseleave') onmouseOut() {
-    this._renderer.setElementStyle(
-      this._elementRef.nativeElement,
-      'background-color', 'white'  
-    );
+    // this._renderer.setElementStyle(
+    //   this._elementRef.nativeElement,
+    //   'background-color', 'white'  
+    // );
+    this.backgroundColor = 'white';
   }
-  constructor(private _elementRef: ElementRef, private _renderer: Renderer) { 
+
+  // @HostBinding('style.backgroundColor') backgroundColor: string;
+  @HostBinding('style.backgroundColor') get setColor() {
+    // add extra code
+    return this.backgroundColor;
+  };
+  private backgroundColor: string;
+
+  constructor(
+    // private _elementRef: ElementRef, private _renderer: Renderer
+  ) { 
 
   }
 
